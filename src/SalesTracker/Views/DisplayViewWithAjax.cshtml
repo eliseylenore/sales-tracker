@@ -1,0 +1,10 @@
+﻿@model IEnumerable<SalesTracker.Models.Car>
+
+@foreach(var car in Model)
+    {
+        <div id="display-view-with-ajax">
+            @Html.DisplayFor(modelCar => car.Make)
+            @Html.DisplayFor(modelCar => car.Model)
+            @Html.DisplayFor(modelCar => car.Year)
+        </div>
+    }

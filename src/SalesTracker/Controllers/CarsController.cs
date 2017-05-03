@@ -18,5 +18,10 @@ namespace SalesTracker.Controllers
         {
             return View(db.Cars.ToList());
         }
+
+        public IActionResult DisplayViewWithAjax()
+        {
+            return View();
+        }
     }
 }
