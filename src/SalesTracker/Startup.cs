@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using SalesTracker.Models;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace SalesTracker
 {
@@ -43,6 +44,7 @@ namespace SalesTracker
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -52,7 +54,7 @@ namespace SalesTracker
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Hello Big World!");
             });
         }
     }

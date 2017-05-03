@@ -6,18 +6,9 @@
 
 
 <h2>Cars!</h2>
-$('.display-view').click(function () {
-    $.ajax({
-        type: 'GET',
-        dataType: 'html',
-        url: '@Url.Action("DisplayViewWithAjax")',
-        success: function (result) {
-        $('#result4').html(result);
-        }
-    });
-});
+
 
 
 <h2>Displaying list of cars</h2>
-<h4 class="display-view">Display Cars</h4>
+<h4 class="display-view" data-request-url='@Url.Action("DisplayViewWithAjax")'>Display Cars</h4>
 <div id="result"></div>

@@ -13,7 +13,7 @@ namespace SalesTracker.Controllers
     public class CarsController : Controller
     {
         private SalesTrackerContext db = new SalesTrackerContext();
-        
+
         public IActionResult Index()
         {
             return View(db.Cars.ToList());
@@ -21,7 +21,7 @@ namespace SalesTracker.Controllers
 
         public IActionResult DisplayViewWithAjax()
         {
-            return View();
+            return View(db.Cars.ToList());
         }
     }
 }
