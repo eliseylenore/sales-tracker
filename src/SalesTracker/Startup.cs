@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using SalesTracker.Models;
 
 namespace SalesTracker
 {
@@ -27,10 +28,10 @@ namespace SalesTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //services.AddEntityFramework()
-            //    .AddEntityFrameworkSqlServer();
-            //services.AddDbContext<>(options =>
-            //options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddEntityFramework()
+                .AddEntityFrameworkSqlServer();
+            services.AddDbContext<SalesTrackerContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
