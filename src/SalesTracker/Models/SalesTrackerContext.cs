@@ -9,6 +9,7 @@ namespace SalesTracker.Models
     public class SalesTrackerContext : DbContext
     {
         public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<CarSale> CarSales { get; set; } 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

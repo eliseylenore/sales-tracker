@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace SalesTracker.Models
 {
-    [Table("Sales")]
+    [Table("CarSales")]
     public class CarSale
     {
         
         [Key]
+        public int CarSaleId { get; set; }
         public virtual Car Car { get; set; }
         public decimal SellingPrice { get; set; }
         public string Comment { get; set; }
