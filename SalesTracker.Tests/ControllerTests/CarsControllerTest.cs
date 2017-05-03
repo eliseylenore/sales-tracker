@@ -24,5 +24,20 @@ namespace SalesTracker.Tests
             Assert.IsType<ViewResult>(result);
 
         }
+
+        [Fact]
+        public void Get_ModelList_Index_Test()
+        {
+            //Arrange
+            CarsController controller = new CarsController();
+            IActionResult actionResult = controller.Index();
+            ViewResult indexView = controller.Index() as ViewResult;
+
+            //Act
+            var result = indexView.ViewData.Model;
+
+            //Assert
+            Assert.IsType<List<Car>>(result);
+        }
     }
 }
