@@ -1,1 +1,17 @@
 ﻿
+@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<SalesTracker.Models.Car>
+<h2>Cars!</h2>
+
+@foreach(var car in Model)
+{
+    <div>
+        @Html.DisplayFor(modelCar => car.Make)
+        @Html.DisplayFor(modelCar => car.Model)
+        @Html.DisplayFor(modelCar => car.Year)
+    </div>
+}

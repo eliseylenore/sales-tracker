@@ -16,7 +16,7 @@ namespace SalesTracker.Controllers
         
         public IActionResult Index()
         {
-            return View();
+            return View(db.Cars.ToList());
         }
     }
 }
