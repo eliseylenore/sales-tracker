@@ -29,5 +29,22 @@ namespace SalesTracker.Models
             Description = description;
         }
         public Car() { }
+
+        public override bool Equals(System.Object otherCar)
+        {
+            if (!(otherCar is Car))
+            {
+                return false;
+            }
+            else
+            {
+                Car newCar = (Car)otherCar;
+                return this.CarId.Equals(newCar.Price);
+            }
+        }
+            public override int GetHashCode()
+        {
+            return this.CarId.GetHashCode();
+        }
     }
 }

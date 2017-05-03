@@ -39,5 +39,22 @@ namespace SalesTracker.Tests
             //Assert
             Assert.IsType<List<Car>>(result);
         }
+
+        [Fact]
+        public void Post_MethodAddsItem_Test()
+        {
+            //Arrange
+            CarsController controller = new CarsController();
+            ViewResult indexView = new CarsController().Index() as ViewResult;
+            var collection = indexView.ViewData.Model as IEnumerable<Car>;
+            var collectionLength = collection.Count();
+
+            //Act
+            controller.NewCar("Make", "Model", "Year", 1, "test car description");
+            var collectionLength2 = collection.Count();
+
+            //Assert
+            Assert.Equal(collectionLength, collectionLength2);
+        }
     }
 }
