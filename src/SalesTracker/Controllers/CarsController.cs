@@ -23,5 +23,15 @@ namespace SalesTracker.Controllers
         {
             return View(db.Cars.ToList());
         }
+
+        [HttpPost]
+        public IActionResult NewCar(string newMake, string newModel, string newYear, decimal newPrice, string newDescription)
+        {
+            Car newCar = new Car(newMake, newModel, newYear, newPrice, newDescription);
+            db.Cars.Add(newCar);
+            db.SaveChanges();
+            return Json(newCar);
+
+        }
     }
 }

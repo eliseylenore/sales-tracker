@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,3 +12,20 @@
 <h2>Displaying list of cars</h2>
 <h4 class="display-view" data-request-url='@Url.Action("DisplayViewWithAjax")'>Display Cars</h4>
 <div id="result"></div>
+
+
+<h2>Add A new Car</h2>
+<form action="NewCar" data-request-url="@Url.Action("NewCar")" class="new-car">
+    <label for="newMake">Make: </label>
+    <input type="text" name="newMake" />
+    <label for="newModel">Model: </label>
+    <input type="text" name="newModel" />
+    <label for="newYear">Year:</label>
+    <input type="text" name="newYear" />
+    <label for="newPrice">Price:</label>
+    <input type="number" name="newPrice" />
+    <label for="newDescription">Description:</label>
+    <input type="text" name="newDescription" />
+    <button type="submit">Submit</button>
+</form>
+<div id="SaveNewCar"></div>

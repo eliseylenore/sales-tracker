@@ -19,5 +19,15 @@ namespace SalesTracker.Models
         public string Year { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
+
+        public Car(string make, string model, string year, decimal price, string description)
+        {
+            Make = make; 
+            Model = model;
+            Year = year;
+            Price = price;
+            Description = description;
+        }
+        public Car() { }
     }
 }
