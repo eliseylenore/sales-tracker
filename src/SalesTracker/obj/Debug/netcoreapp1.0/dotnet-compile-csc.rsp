@@ -199,6 +199,8 @@
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Controllers\SalesController.cs"
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Migrations\20170504155626_RecreateDatabase.cs"
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Migrations\20170504155626_RecreateDatabase.Designer.cs"
+"C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Migrations\20170504230649_SetForeignKey.cs"
+"C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Migrations\20170504230649_SetForeignKey.Designer.cs"
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Migrations\SalesTrackerContextModelSnapshot.cs"
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Models\Car.cs"
 "C:\Users\epicodus\Desktop\sales-tracker\src\SalesTracker\Models\CarSale.cs"
