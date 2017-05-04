@@ -13,17 +13,31 @@
 
     $('.new-car').submit(function (event) {
         event.preventDefault();
-        console.log("I see your js");
+        if (!$(this).hasClass("showCars")) {
+            $(this).addClass("showCars");
+        }
+        else {
+            $(this).removeClass("showCars");
+        }
+        
         $.ajax({
             url: $(this).data('request-url'),
             type: 'POST',
             dataType: 'json',
             data: $(this).serialize(),
             success: function (result) {
-                var resultMessage = 'You\'ve added a new car to the database!<br>Make: ' + result.make + '<br>Model: ' + result.model + '<br> Year:' + result.year + '<br> Price:' + result.price + '<br>Description: ' + result.description ;
-                $('#SaveNewCar').html(resultMessage);
-            }
-        })
+                var resultMessage = 'You\'ve added a new car to the database!<br>Make: ' + result.make + '<br>Model: ' + result.model + '<br> Year:' + result.year + '<br> Price:' + result.price + '<br>Description: ' + result.description + '<br><button class="btn btn-success okay">Okay</button>';                 
+                $('#SaveNewCar').html(resultMessage);           
+                $('.new-car').hide();
+                $("input").val("");
+                $('.okay').click(function () {
+                    console.log("Hey there");
+                    $('#SaveNewCar').hide();
+                });
+            }                              
+        });
     });
+
+    
 });
 

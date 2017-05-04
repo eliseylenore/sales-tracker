@@ -66,9 +66,8 @@ namespace SalesTracker
 
         private static void AddTestData(SalesTrackerContext context)
         {
-
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Cars");
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE CarSales");
+            context.Database.ExecuteSqlCommand("DELETE FROM CarSales");
+            context.Database.ExecuteSqlCommand("DELETE FROM Cars");
             var testCar1 = new Models.Car("Lexus", "S7", "1991", 20000, "Good Condition" );
             var testCar2 = new Models.Car("Audi", "A4", "2017", 32000, "AWESOME");
             var testCar3 = new Models.Car("Firebird", "3000", "2020", 15000, "Poor Condition");
