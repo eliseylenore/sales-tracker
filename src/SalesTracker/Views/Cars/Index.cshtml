@@ -16,16 +16,26 @@
 
 <h2>Add A new Car</h2>
 <form action="NewCar" data-request-url="@Url.Action("NewCar")" class="new-car">
-    <label for="newMake">Make: </label>
-    <input type="text" name="newMake" />
-    <label for="newModel">Model: </label>
-    <input type="text" name="newModel" />
-    <label for="newYear">Year:</label>
-    <input type="text" name="newYear" />
-    <label for="newPrice">Price:</label>
-    <input type="number" name="newPrice" />
-    <label for="newDescription">Description:</label>
-    <input type="text" name="newDescription" />
-    <button type="submit">Submit</button>
+    <div class="form-group">
+        <label for="newMake">Make: </label>
+        <input type="text" name="newMake" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="newModel">Model: </label>
+        <input type="text" name="newModel"  class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="newYear">Year:</label>
+        <input type="text" name="newYear"  class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="newPrice">Price:</label>
+        <input type="number" name="newPrice"  class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="newDescription">Description:</label>
+        <input type="text" name="newDescription"  class="form-control"/>
+    </div>
+        <button type="submit" class="btn btn-info">Submit</button>
 </form>
 <div id="SaveNewCar"></div>
