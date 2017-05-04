@@ -37,6 +37,10 @@ namespace SalesTracker
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+
+            var context = app.ApplicationServices.GetService<SalesTrackerContext>();
+            AddTestData(context);
+
             loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
@@ -49,13 +53,40 @@ namespace SalesTracker
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Cars}/{action=Index}/{id?}");
             });
 
-            app.Run(async (context) =>
+            app.Run(async (context1) =>
             {
-                await context.Response.WriteAsync("Hello Big World!");
+                await context1.Response.WriteAsync("Hello Big World!");
             });
+
+   
+        }
+
+        private static void AddTestData(SalesTrackerContext context)
+        {
+
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Cars");
+            context.Database.ExecuteSqlCommand("TRUNCATE TABLE CarSales");
+            var testCar1 = new Models.Car("Lexus", "S7", "1991", 20000, "Good Condition" );
+            var testCar2 = new Models.Car("Audi", "A4", "2017", 32000, "AWESOME");
+            var testCar3 = new Models.Car("Firebird", "3000", "2020", 15000, "Poor Condition");
+
+            context.Cars.Add(testCar1);
+            context.Cars.Add(testCar2);
+            context.Cars.Add(testCar3);
+
+            var testSale = new Models.CarSale
+            {
+                SellingPrice = 20000,
+                Comment = "Customer asked for 50% off. I gave him 24%.",
+                CarId = testCar1.CarId
+            };
+
+            context.CarSales.Add(testSale);
+
+            context.SaveChanges();
         }
     }
 }

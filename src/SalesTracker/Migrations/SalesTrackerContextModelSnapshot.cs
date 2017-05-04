@@ -41,7 +41,7 @@ namespace SalesTracker.Migrations
                     b.Property<int>("CarSaleId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CarId");
+                    b.Property<int>("CarId");
 
                     b.Property<string>("Comment");
 
@@ -49,7 +49,8 @@ namespace SalesTracker.Migrations
 
                     b.HasKey("CarSaleId");
 
-                    b.HasIndex("CarId");
+                    b.HasIndex("CarId")
+                        .IsUnique();
 
                     b.ToTable("CarSales");
                 });
@@ -57,8 +58,9 @@ namespace SalesTracker.Migrations
             modelBuilder.Entity("SalesTracker.Models.CarSale", b =>
                 {
                     b.HasOne("SalesTracker.Models.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId");
+                        .WithOne("CarSale")
+                        .HasForeignKey("SalesTracker.Models.CarSale", "CarId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }
