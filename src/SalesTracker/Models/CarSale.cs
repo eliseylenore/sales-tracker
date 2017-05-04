@@ -10,7 +10,6 @@ namespace SalesTracker.Models
     [Table("CarSales")]
     public class CarSale
     {
-        
         [Key]
         public int CarSaleId { get; set; }
         public virtual Car Car { get; set; }
