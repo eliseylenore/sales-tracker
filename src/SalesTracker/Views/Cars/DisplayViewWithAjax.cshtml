@@ -6,5 +6,7 @@
             @Html.DisplayFor(modelCar => car.Make)
             @Html.DisplayFor(modelCar => car.Model)
             @Html.DisplayFor(modelCar => car.Year)
+            <button class="btn btn-success buy-car" data-request-url='@Url.Action("NewSale", "Sales", new { id = car.CarId })'>Buy</button>
+            <div id="display-@car.CarId"></div>
         </div>
     }

@@ -14,5 +14,22 @@ namespace SalesTracker.Controllers
         {
             return View();
         }
+
+        public IActionResult NewSale(int id)
+        {
+            Car thisCar = db.Cars.FirstOrDefault(cars => cars.CarId == id);
+            return View(thisCar);
+        }
+
+        [HttpPost]
+        public IActionResult NewSale(decimal sellingPrice, string comment, int carId)
+        {
+            CarSale newSale = new CarSale(sellingPrice, comment, carId);
+            db.CarSales.Add(newSale);
+            db.SaveChanges();
+            return Json(newSale);
+        }
     }
+
+  
 }

@@ -17,5 +17,13 @@ namespace SalesTracker.Models
         public int CarId { get; set; }
         public virtual Car Car { get; set; }
 
+        public CarSale(decimal sellingPrice, string comment, int carId)
+        {
+            SellingPrice = sellingPrice;
+            Comment = comment;
+            CarId = carId;
+        }
+
+        public CarSale() { }
     }
 }
